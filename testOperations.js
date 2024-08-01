@@ -59,7 +59,7 @@ exports.handler = async (event) => {
         
         
             const queryParams = {
-        TableName: "learningStrategiesTestTable",
+        TableName: "mytable",
         KeyConditionExpression: "#pk = :pkValue",
         FilterExpression: "#timestampAttribute >= :oneHourAgo",
         ExpressionAttributeNames: {
@@ -94,13 +94,13 @@ exports.handler = async (event) => {
 
     
 
-if (requestType === 'getQuestions') {
+if (requestType === 'typeX') {
     
     let questions =[];
         try {
         
         const scanParams = {
-            TableName: 'learningStrategiesTestQuestionsTable',
+            TableName: 'myTable',
             FilterExpression: 'testName = :testNameValue',
             ExpressionAttributeValues: {
                 ':testNameValue': 'SOL'
@@ -145,7 +145,7 @@ if (requestType === 'getQuestions') {
 
 
 
-else if (requestType === 'evaluateAnswers') {
+else if (requestType === 'typeX') {
     // Extract the five values from the request body
     console.log("BODY", body);
 
@@ -163,7 +163,7 @@ else if (requestType === 'evaluateAnswers') {
     // Get model answers (system instructions) for the questions
     
     const scanParams = {
-        TableName: 'learningStrategiesTestQuestionsTable',
+        TableName: 'myTable',
         FilterExpression: 'testName = :testNameValue',
         ExpressionAttributeValues:{
             ':testNameValue': 'SOL'
@@ -326,7 +326,7 @@ else if (requestType === 'evaluateAnswers') {
     
     
     const putParams = {
-        TableName: 'learningStrategiesTestTable',
+        TableName: 'MyTable',
         Item: {
             'IPAddress': clientIpAddress,
             'SessionID':sessionUUID,
@@ -374,7 +374,7 @@ if (requestType === 'sendEmail') {
     // Fetch test results from the database
 
     const resultsParams = {
-        TableName: 'learningStrategiesTestTable',
+        TableName: 'myTable',
         Key: {
             'IPAddress': clientIpAddress,
             'SessionID': sessionUUID  
