@@ -202,7 +202,7 @@ else if (requestType === 'evaluateAnswers') {
         for (let i = 0; i < userAnswers.length; i++) {
             let userAnswer = userAnswers[i];
             if (userAnswer == "" || userAnswer == " "){
-                userAnswer = "fuck you";
+                userAnswer = "not provided: assign score 1";
             }
             const topic = topics[i];
             
